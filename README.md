@@ -1,6 +1,6 @@
 # KingOfBots
 
-**此项目为Acwing的Spingboot课程中项目的后端部分**
+**此项目为Acwing的Spingboot课程中项目的前端部分**
 
 
 This template should help get you started developing with Vue 3 in Vite.
