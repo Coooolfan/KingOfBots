@@ -8,7 +8,7 @@ export class GameMap extends AcGameObject {
         this.parent = parent;
         this.L = 0;
         this.rows = 13;
-        this.cols = 13;
+        this.cols = 14;
 
         this.inner_walls_count = 20;
         this.walls = [];
@@ -32,11 +32,11 @@ export class GameMap extends AcGameObject {
             for (; ;) {
                 let r = parseInt(Math.random() * this.rows);
                 let c = parseInt(Math.random() * this.cols);
-                if (g[r][c] || g[c][r]) continue;
+                if (g[r][c] || g[this.rows-1-r][this.cols-1-c]) continue;
                 // 确保蛇的出生点没有墙
                 if ((r === this.rows - 2 && c === 1) || (c === this.cols - 2 && r === 1)) continue;
                 g[r][c] = true;
-                g[c][r] = true;
+                g[this.rows - 1 - r][this.cols - 1 - c] = true;
                 break;
             }
         }
