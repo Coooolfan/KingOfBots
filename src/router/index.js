@@ -4,6 +4,8 @@ import RecordindexView from '../views/record/RecordindexView.vue'
 import RanklistindexView from '../views/ranklist/RanklistindexView.vue'
 import NotFound from '../views/error/NotFound.vue'
 import UserBotindexView from '../views/user/bot/UserBotindexView.vue'
+import UserAccountLoginView from '../views/user/account/UserAccountLogin.vue'
+import UserAccountRegView from '../views/user/account/UserAccountReg.vue'
 const routes = [
     {
         path: "/pk/",
@@ -24,6 +26,16 @@ const routes = [
         path: "/user/bot/",
         name: "UserBotindex",
         component: UserBotindexView,
+    },
+    {
+        path: "/user/account/login/",
+        name: "UserAccountLogin",
+        component: UserAccountLoginView,
+    },
+    {
+        path: "/user/account/reg/",
+        name: "UserAccountReg",
+        component: UserAccountRegView,
     },
     {
         path: "/:pathMatch(.*)*",
