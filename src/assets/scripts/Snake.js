@@ -1,5 +1,5 @@
 import { AcGameObject } from "./ACGameObject";
-import { Cell } from "./cell";
+import { Cell } from "./Cell";
 export class Snake extends AcGameObject {
     constructor(info, gameMap) {
         super();
