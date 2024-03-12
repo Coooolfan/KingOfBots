@@ -39,6 +39,7 @@ export default {
                 }),
                 success(resp) {
                     if (resp.msg === "success") {
+                        localStorage.setItem("kob_token", resp.token);
                         context.commit("updateToken", resp.token);
                         // success和error为回调函数，用于展示msg信息
                         data.success(resp);
@@ -56,6 +57,7 @@ export default {
             $.ajax({
                 url: "http://127.0.0.1:8080/user/account/info/",
                 type: "get",
+                contentType: 'application/json',
                 headers: {
                     Authorization: "Bearer " + context.state.token,
                 },
@@ -75,7 +77,8 @@ export default {
                 }
             })
         },
-        logout(context){
+        logout(context) {
+            localStorage.removeItem("kob_token");
             context.commit("logout");
         }
     },

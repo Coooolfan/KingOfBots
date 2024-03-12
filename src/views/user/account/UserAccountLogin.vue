@@ -50,7 +50,6 @@ export default {
                         success(resp) {
                             msg.value = resp.msg;
                             router.push({ name: "PKindex" });
-                            console.log(store.state.user);
                         },
                         error(resp) {
                             console.log(resp);
