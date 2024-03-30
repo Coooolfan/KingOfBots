@@ -40,7 +40,21 @@ export default {
                         photo: data.opponent_photo,
                     });
                     store.commit("updateStatus", "playing");
-                    store.commit("updateGamemap", data.gamemap);
+                    store.commit("updateGame", data.game);
+                } else if (data.event === "move") {
+                    const game = store.state.pk.gameObj;
+                    const [snake0, snake1] = game.snakes
+                    snake0.set_dirction(data.a_direction);
+                    snake1.set_dirction(data.b_direction);
+                } else if (data.event === "result") {
+                    const game = store.state.pk.gameObj;
+                    const [snake0, snake1] = game.snakes;
+                    if (data.loser === "all" || data.loser === "a") {
+                        snake0.status = "die";
+                    }
+                    if (data.loser === "all" || data.loser === "b") {
+                        snake1.status = "die";
+                    }
                 }
 
             }
