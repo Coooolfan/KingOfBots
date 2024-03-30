@@ -4,7 +4,8 @@ export default {
         status: "matching",// matching 表示匹配阶段， playing 表示游戏中
         scoket: null,
         opponent_username: "",
-        opponent_photo: ""
+        opponent_photo: "",
+        gamemap: null
 
     },
     getters: {
@@ -19,6 +20,9 @@ export default {
         },
         updateStatus(state, status) {
             state.status = status;
+        },
+        updateGamemap(state, gamemap) {
+            state.gamemap = gamemap;
         },
     },
     actions: {

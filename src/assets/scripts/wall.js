@@ -1,6 +1,6 @@
 import { AcGameObject } from "./ACGameObject";
 export class Wall extends AcGameObject {
-    constructor(c, r, GameMap) {
+    constructor(r, c, GameMap) {
         super();
         this.c = c;
         this.r = r;
