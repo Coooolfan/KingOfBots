@@ -22,8 +22,9 @@ export default {
     },
     setup() {
         const store = useStore();
-        const socketUrl = `ws://localhost:8080/websocket/${store.state.user.token}/`;
-        store.commit('updateIsRecord', false);
+        const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        const host = window.location.host;
+        const socketUrl = `${protocol}://${host}/websocket/${store.state.user.token}/`; store.commit('updateIsRecord', false);
         let socket = null;
         store.commit("updateLoser", "");
 

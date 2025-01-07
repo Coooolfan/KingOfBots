@@ -78,7 +78,7 @@ export default {
         const pull_page = page => {
             currentPage = page;
             $.ajax({
-                url: "http://localhost:8080/record/getlist/",
+                url: "/api/record/getlist/",
                 data: {
                     page,
                 },

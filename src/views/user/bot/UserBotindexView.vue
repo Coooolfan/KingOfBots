@@ -171,7 +171,7 @@ export default {
 
         const refresh_bots = () => {
             $.ajax({
-                url: "http://localhost:8080/user/bot/getlist/",
+                url: "/api/user/bot/getlist/",
                 type: "get",
                 contentType: 'application/json',
                 headers: {
@@ -187,7 +187,7 @@ export default {
         const add_bot = () => {
             add_modal.msg = "提交中……",
                 $.ajax({
-                    url: "http://localhost:8080/user/bot/add/",
+                    url: "/api/user/bot/add/",
                     type: "POST",
                     contentType: 'application/json',
                     headers: {
@@ -215,7 +215,7 @@ export default {
         };
         const remove_bot = (bot_id) => {
             $.ajax({
-                url: "http://localhost:8080/user/bot/remove/",
+                url: "/api/user/bot/remove/",
                 type: "POST",
                 contentType: 'application/json',
                 headers: {
@@ -236,7 +236,7 @@ export default {
         const update_bot = (bot) => {
             add_modal.msg = "提交中……",
                 $.ajax({
-                    url: "http://localhost:8080/user/bot/update/",
+                    url: "/api/user/bot/update/",
                     type: "POST",
                     contentType: 'application/json',
                     headers: {

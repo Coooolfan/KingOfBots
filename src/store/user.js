@@ -30,7 +30,7 @@ export default {
     actions: {
         login(context, data) {
             $.ajax({
-                url: "http://127.0.0.1:8080/user/account/token/",
+                url: "/api/user/account/token/",
                 type: "post",
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -55,7 +55,7 @@ export default {
         },
         getinfo(context, data) {
             $.ajax({
-                url: "http://127.0.0.1:8080/user/account/info/",
+                url: "/api/user/account/info/",
                 type: "get",
                 contentType: 'application/json',
                 headers: {

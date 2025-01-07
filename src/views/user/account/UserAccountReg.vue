@@ -54,7 +54,7 @@ export default {
             }
 
             $.ajax({
-                url: "http://127.0.0.1:8080/user/account/register/",
+                url: "/api/user/account/register/",
                 type: "post",
                 contentType: 'application/json',
                 data: JSON.stringify({

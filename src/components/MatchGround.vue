@@ -56,7 +56,7 @@ export default {
         }
         const refresh_bots = () => {
             $.ajax({
-                url: "http://localhost:8080/user/bot/getlist/",
+                url: "/api/user/bot/getlist/",
                 type: "get",
                 contentType: 'application/json',
                 headers: {
