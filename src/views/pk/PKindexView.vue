@@ -23,7 +23,10 @@ export default {
     setup() {
         const store = useStore();
         const socketUrl = `ws://localhost:8080/websocket/${store.state.user.token}/`;
+        store.commit('updateIsRecord', false);
         let socket = null;
+        store.commit("updateLoser", "");
+
         onMounted(() => {
             store.commit("updateOpponent", {
                 username: "我的对手",
@@ -37,7 +40,6 @@ export default {
             }
             socket.onmessage = msg => {
                 const data = JSON.parse(msg.data);
-                console.log(data);
                 if (data.event === "start-matching") {  // 匹配成功
                     store.commit("updateOpponent", {
                         username: data.opponent_username,
