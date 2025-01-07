@@ -2,16 +2,12 @@
 
 **此项目为Acwing的Spingboot课程中项目的前端部分**
 
+> [!TIP]
+> 此仓库仅用于代码归档
 
-This template should help get you started developing with Vue 3 in Vite.
+前端部分与课程内容基本无差异
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+后端仓库访问：<https://github.com/Coooolfan/KingOfBots-Server>
 
 ## Project Setup
 
