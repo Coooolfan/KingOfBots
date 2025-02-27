@@ -37,6 +37,16 @@
                                                     id="bot-desc" placeholder="输入新建bot的描述">
                                             </div>
                                             <div class="mb-3">
+                                                <label for="bot-language" class="form-label">Bot语言</label>
+                                                <select v-model="add_modal.language" class="form-select"
+                                                    id="bot-language">
+                                                    <option value="python">Python</option>
+                                                    <option value="java">Java</option>
+                                                    <option value="c++">C++</option>
+                                                    <option value="javascript">JavaScript</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="bot-context" class="form-label">Bot代码</label>
                                                 <textarea v-model="add_modal.content" class="form-control"
                                                     id="bot-context" rows="8"></textarea>
@@ -61,6 +71,7 @@
                                         <th>名称</th>
                                         <th>创建时间</th>
                                         <th>操作</th>
+                                        <th>Bot语言</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,6 +108,17 @@
                                                                     placeholder="输入编辑后bot的描述">
                                                             </div>
                                                             <div class="mb-3">
+                                                                <label for="bot-language"
+                                                                    class="form-label">Bot语言</label>
+                                                                <select v-model="bot.language" class="form-select"
+                                                                    id="bot-language">
+                                                                    <option value="python">Python</option>
+                                                                    <option value="java">Java</option>
+                                                                    <option value="c++">C++</option>
+                                                                    <option value="javascript">JavaScript</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="mb-3">
                                                                 <label for="bot-context"
                                                                     class="form-label">Bot代码</label>
                                                                 <textarea v-model="bot.content" class="form-control"
@@ -118,6 +140,7 @@
                                             <button type="button" class="btn btn-danger"
                                                 @click="remove_bot(bot.id)">删除</button>
                                         </td>
+                                        <td>{{ bot.language }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -165,6 +188,7 @@ export default {
             title: "",
             desc: "",
             content: "",
+            language: "",
             msg: "",
         })
         let modal_msg = ref("123");
@@ -180,7 +204,6 @@ export default {
                 success(resp) {
                     bots.value = resp;
                     console.log();
-
                 },
             })
         };
@@ -197,6 +220,7 @@ export default {
                         title: add_modal.title,
                         desc: add_modal.desc,
                         content: add_modal.content,
+                        language: add_modal.language,
                     }),
 
                     success(resp) {
@@ -204,6 +228,7 @@ export default {
                             add_modal.content = "";
                             add_modal.title = "";
                             add_modal.desc = "";
+                            add_modal.language = "";
                             refresh_bots();
                             add_modal.msg = "";
                             Modal.getInstance('#add-bot-btn').hide();
@@ -247,6 +272,7 @@ export default {
                         title: bot.title,
                         desc: bot.desc,
                         content: bot.content,
+                        language: bot.language,
                     }),
                     success(resp) {
                         console.log(resp);
@@ -254,6 +280,7 @@ export default {
                             add_modal.content = "";
                             add_modal.title = "";
                             add_modal.desc = "";
+                            add_modal.language = "";
                             refresh_bots();
                             add_modal.msg = "";
                             Modal.getInstance('#update-bot-btn-' + bot.id).hide();
