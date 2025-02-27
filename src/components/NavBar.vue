@@ -9,8 +9,8 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link :class="route_name == 'PKindex' ? 'nav-link active' : 'nav-link'" aria-current="page"
-                            :to="{ name: 'PKindex' }">对战</router-link>
+                        <router-link :class="route_name == 'PKindex' ? 'nav-link active' : 'nav-link'"
+                            aria-current="page" :to="{ name: 'PKindex' }">对战</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link :class="route_name == 'Recordindex' ? 'nav-link active' : 'nav-link'"
@@ -58,26 +58,23 @@ export default {
     name: 'NavBar',
     data() {
         return {
-
-        }
-    },
-    computed: {
-        route_name() {
-            return useRoute().name;
         }
     },
     setup() {
         const store = useStore();
+        // useRoute() 必须在 setup() 函数内部调用
+        const route = useRoute();
+
         const logout = () => {
             store.dispatch("logout");
         }
+
         return {
-            logout
+            logout,
+            route_name: () => route.name
         }
     }
-
 }
-
 </script>
 
 <style scoped></style>
