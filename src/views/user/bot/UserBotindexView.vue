@@ -42,7 +42,7 @@
                                                     id="bot-language">
                                                     <option value="python">Python</option>
                                                     <option value="java">Java</option>
-                                                    <option value="c++">C++</option>
+                                                    <option value="cpp">C++</option>
                                                     <option value="javascript">JavaScript</option>
                                                 </select>
                                             </div>
@@ -114,7 +114,7 @@
                                                                     id="bot-language">
                                                                     <option value="python">Python</option>
                                                                     <option value="java">Java</option>
-                                                                    <option value="c++">C++</option>
+                                                                    <option value="cpp">C++</option>
                                                                     <option value="javascript">JavaScript</option>
                                                                 </select>
                                                             </div>
