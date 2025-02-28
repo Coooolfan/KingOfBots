@@ -1,34 +1,36 @@
 <template>
     <div class="container content-field">
-        <div class="card" :style="{ 'background-color': computedBackgroundColor }">
+        <div class="card" :style="{ 'background-color': computedBackgroundColor() }">
             <div class="card-body">
                 <slot></slot>
             </div>
-            <p class="tips">{{ computedTips }}</p>
+            <p class="tips">{{ computedTips() }}</p>
         </div>
     </div>
 </template>
 
 <script>
-import { computed } from 'vue';
 import { useStore } from 'vuex';
 
 export default {
     setup() {
+        const store = useStore();
+
+        const computedBackgroundColor = () => {
+            if (store.state.pk.status === "matching") return "white"
+            return Number(store.state.user.id) === Number(store.state.pk.b_id) ? '#fff6f6' : "#f6f8fe";
+        }
+
+        const computedTips = () => {
+            if (store.state.pk.status !== "playing") return ""
+            return Number(store.state.user.id) === Number(store.state.pk.b_id) ? '你是红方' : "你是蓝方";
+        }
+
         return {
-            tips: "这是一个内容区域，可以放置游戏地图、匹配按钮、结果面板等内容"
+            computedBackgroundColor,
+            computedTips,
         }
-    },
-    computed: {
-        computedBackgroundColor() {
-            if (useStore().state.pk.status === "matching") return "white"
-            return Number(useStore().state.user.id) === Number(useStore().state.pk.b_id) ? '#fff6f6' : "#f6f8fe";
-        },
-        computedTips() {
-            if (useStore().state.pk.status !== "playing") return ""
-            return Number(useStore().state.user.id) === Number(useStore().state.pk.b_id) ? '你是红方' : "你是蓝方";
-        }
-    },
+    }
 };
 </script>
 
@@ -37,7 +39,8 @@ div.content-field {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.tips{
+
+.tips {
     text-align: center;
     font-size: xx-large;
     color: #666;
