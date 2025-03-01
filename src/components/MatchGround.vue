@@ -63,7 +63,11 @@ export default {
                     Authorization: "Bearer " + store.state.user.token,
                 },
                 success(resp) {
-                    bots.value = resp;
+                    for (let bot of resp) {
+                        if (bot.status !== "uncompile") {
+                            bots.value.push(bot);
+                        }
+                    }
                 },
             })
         };

@@ -72,6 +72,7 @@
                                         <th>创建时间</th>
                                         <th>操作</th>
                                         <th>Bot语言</th>
+                                        <th>Bot状态</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -141,6 +142,7 @@
                                                 @click="remove_bot(bot.id)">删除</button>
                                         </td>
                                         <td>{{ bot.language }}</td>
+                                        <td>{{ get_bot_status(bot) }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -177,6 +179,11 @@ export default {
             };
 
             return year + '-' + pad(month) + '-' + pad(day) + ' ' + pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+        },
+        get_bot_status(bot) {
+            if (bot.status === "uncompile")
+                return "等待编译……"
+            return "就绪";
         }
     },
     setup() {
