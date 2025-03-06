@@ -183,6 +183,10 @@ export default {
         get_bot_status(bot) {
             if (bot.status === "uncompile")
                 return "等待编译……"
+            if (bot.status === "failed")
+                return "编译失败";
+            if (bot.status === "timeout")
+                return "编译超时";
             return "就绪";
         }
     },
