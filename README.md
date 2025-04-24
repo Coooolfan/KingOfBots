@@ -16,7 +16,6 @@
 
 - 微服务无鉴权
 
-相较于原课程的功能，此项目有以下差异：
 - 提供开箱即用的Docker镜像（仅BotRunner微服务）
 - 提供Bot多语言支持（JAVA、JavaScript、Python、C++）
   - 抽象出BotRunner和BotCompiler接口
